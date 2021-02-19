@@ -58,5 +58,20 @@ contract VonToken {
     }
 
     // Delegated transfer from one account to another
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+        // Account transferring must have enough tokens and requesting account must have enough allowance
+        require(balanceOf[_from] >= _value);
+        require(allowance[_from][msg.sender] >= _value);
+
+        // Transfer tokens between accounts and update allowance accordingly
+        balanceOf[_from] -= _value;
+        balanceOf[_to] += _value;
+        allowance[_from][msg.sender] -= _value;
+
+        // Create transfer event
+        emit Transfer(_from, _to, _value);
+
+        return true;
+    }
 
 }

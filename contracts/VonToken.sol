@@ -23,6 +23,7 @@ contract VonToken {
     );
 
     mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
 
     // Assign intial token supply to admin account
     constructor(uint256 _initialSupply) public {
@@ -47,6 +48,8 @@ contract VonToken {
 
     // Sender approves account to spend some of their tokens
     function approve(address _spender, uint256 _value) public returns (bool success) {
+        // Update allowance mapping to give specified spender an allowance
+        allowance[msg.sender][_spender] = _value;
 
         // Create approve event
         emit Approval(msg.sender, _spender, _value);

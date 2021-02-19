@@ -41,9 +41,9 @@ contract('VonToken', (accounts) => {
       // Test event trigger on transfer
       assert.equal(receipt.logs.length, 1, 'Triggers one event')
       assert.equal(receipt.logs[0].event, 'Transfer', 'Function triggers transfer event')
-      assert.equal(receipt.logs[0].event._from, accounts[0], 'Logs the account tokens are transferred from')
-      assert.equal(receipt.logs[0].event._to, accounts[1], 'Logs the account tokens are transferred to')
-      assert.equal(receipt.logs[0].event._value, 250000, 'Logs the amount transferred between accounts')
+      assert.equal(receipt.logs[0].args._from, accounts[0], 'Logs the account tokens are transferred from')
+      assert.equal(receipt.logs[0].args._to, accounts[1], 'Logs the account tokens are transferred to')
+      assert.equal(receipt.logs[0].args._value, 250000, 'Logs the amount transferred between accounts')
 
       return tokenInstance.balanceOf(accounts[1])
     }).then(balance => {
@@ -60,15 +60,18 @@ contract('VonToken', (accounts) => {
       return token.approve.call(accounts[1], 100)
     }).then(success => {
       assert.equal(success, true, 'Approval returns true on success')
-      return token.approve(accounts[1], 100)
+      return tokenInstance.approve(accounts[1], 100, { from: accounts[0] })
     }).then(receipt => {
       // Test event trigger on approval
-      assert.equal(receipt.logs.length, 1, 'Triffers one event')
-      assert.equal(receipt.logs[0].event, 'Approveal', 'Function triggers approval event')
-      assert.equal(receipt.logs[0].event._ownder, accounts[0], 'Logs the account tokens are authorized by')
-      assert.equal(receipt.logs[0].event._spender, accounts[1], 'Logs the account tokens are authorized to')
-      assert.equal(receipt.logs[0].event._value, 100, 'Logs the amount authorized')
+      assert.equal(receipt.logs.length, 1, 'Triggers one event')
+      assert.equal(receipt.logs[0].event, 'Approval', 'Function triggers approval event')
+      assert.equal(receipt.logs[0].args._owner, accounts[0], 'Logs the account tokens are authorized by')
+      assert.equal(receipt.logs[0].args._spender, accounts[1], 'Logs the account tokens are authorized to')
+      assert.equal(receipt.logs[0].args._value, 100, 'Logs the amount authorized')
       
+      return tokenInstance.allowance(accounts[0], accounts[1])
+    }).then(allowance => {
+      assert.equal(allowance.toNumber(), 100, 'Stores the allowance for delegated transfer')
     })
   })
 })

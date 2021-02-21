@@ -1,4 +1,4 @@
-let VonToken = artifacts.require('./VonToken.sol')
+const VonToken = artifacts.require('./VonToken.sol')
 
 contract('VonToken', (accounts) => {
   let tokenInstance

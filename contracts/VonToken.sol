@@ -40,7 +40,7 @@ contract VonToken {
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
 
-        // Create transfer event
+        // Emit transfer event
         emit Transfer(msg.sender, _to, _value);
 
         return true;
@@ -51,7 +51,7 @@ contract VonToken {
         // Update allowance mapping to give specified spender an allowance
         allowance[msg.sender][_spender] = _value;
 
-        // Create approve event
+        // Emit approve event
         emit Approval(msg.sender, _spender, _value);
 
         return true;
@@ -68,10 +68,9 @@ contract VonToken {
         balanceOf[_to] += _value;
         allowance[_from][msg.sender] -= _value;
 
-        // Create transfer event
+        // Emit transfer event
         emit Transfer(_from, _to, _value);
 
         return true;
     }
-
 }

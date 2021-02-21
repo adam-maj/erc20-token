@@ -18,8 +18,22 @@ contract VonTokenSale {
         tokenPrice = _tokenPrice;
     }
 
+    // Safe multiply function so users can manipulate numbers
+    function multiply(uint x, uint y) internal pure returns (uint z) {
+        require(y == 0 || (z = x * y) / y == x);
+    }
+
     // User can buy tokens
     function buyTokens(uint256 _numberOfTokens) public payable {
+        // Make sure users cant overpay or underpay for tokens
+        require(msg.value == multiply(_numberOfTokens, tokenPrice));
+        
+        // There must be enough tokens in the token sale to satisfy the purchase
+        require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
+
+        // Makes sure that the trasnfer runs successfully
+        require(tokenContract.transfer(msg.sender, _numberOfTokens));
+
         // Increment tokens sold every time tokens are purchased
         tokensSold += _numberOfTokens;
 

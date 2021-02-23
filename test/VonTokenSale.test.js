@@ -9,6 +9,7 @@ contract('VonTokenSale', (accounts) => {
   const tokenPrice = 1000000000000000
   const numberOfTokens = 10
   const tokensAvailable = 750000
+  const totalTokens = 1000000
   const admin = accounts[0]
   const buyer = accounts[1]
 
@@ -71,9 +72,19 @@ contract('VonTokenSale', (accounts) => {
     }).then(tokenSale => {
       tokenSaleInstance = tokenSale
       // Try to end the sale from an account thats not the admin
-      return tokenInstance.endSale({ from: buyer })
+      return tokenSaleInstance.endSale({ from: buyer })
     }).then(assert.fail).catch(error => {
       assert(error.message.includes('revert'), 'Sender must be an admin to end a sale')
+      // Try to end the sale as the admin
+      return tokenSaleInstance.endSale({ from: admin })
+    })
+    .then(receipt => {
+      return tokenInstance.balanceOf(admin)
+    }).then(balance => {
+      assert.equal(balance.toNumber(), totalTokens - numberOfTokens, 'Admin gets all remaining unsold tokens when sale is ended')
+      return tokenSaleInstance.tokenPrice()
+    }).then(assert.fail).catch(error => {
+      assert(error.message.includes('valid'), 'Token sale contract no longer exists')
     })
   })
 })

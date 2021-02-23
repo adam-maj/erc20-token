@@ -4,7 +4,7 @@ pragma solidity >=0.4.22 <0.9.0;
 import "./VonToken.sol";
 
 contract VonTokenSale {
-    address admin;
+    address payable admin;
     VonToken public tokenContract;
     uint256 public tokenPrice;
     uint256 public tokensSold;
@@ -39,5 +39,17 @@ contract VonTokenSale {
 
         // Emit sell event
         emit Sell(msg.sender, _numberOfTokens);
+    }
+
+    // Admin can end the token sale at any point
+    function endSale() public {
+        // Only the admin can end the sale
+        require(msg.sender == admin);
+
+        // Make sure that the contract successfully transfers all remaining tokens to admin
+        require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))));
+
+        // Destroy token sale contract
+        selfdestruct(admin);
     }
 }

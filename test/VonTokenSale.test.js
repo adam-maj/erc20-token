@@ -63,4 +63,17 @@ contract('VonTokenSale', (accounts) => {
       assert(error.message.includes('revert'), 'Cannot purchase more tokens then available')
     })
   })
+
+  it('Successfully ends token sale', () => {
+    return VonToken.deployed().then(token => {
+      tokenInstance = token
+      return VonTokenSale.deployed()
+    }).then(tokenSale => {
+      tokenSaleInstance = tokenSale
+      // Try to end the sale from an account thats not the admin
+      return tokenInstance.endSale({ from: buyer })
+    }).then(assert.fail).catch(error => {
+      assert(error.message.includes('revert'), 'Sender must be an admin to end a sale')
+    })
+  })
 })

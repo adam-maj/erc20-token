@@ -11,6 +11,18 @@ a {
   text-decoration: none;
 }
 
+button {
+  outline: none;
+  border: none;
+}
+
 * {
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+}
+
+.blue-gradient {
+  background: -webkit-linear-gradient(45deg, #3291FF,  #50E3C2) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }

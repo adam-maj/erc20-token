@@ -4,6 +4,7 @@ export const theme = {
   'primary': '#FC4C4D',
   'danger': '#FC4C4D',
   'dark': '#0B132A',
+  'gray': '#666666',
   'gray.200': '#F6F6F6',
   'gray.300': '#F0F0F0',
   'gray.400': '#E8E8E8',
@@ -14,7 +15,13 @@ export const theme = {
   'gray.900': '#4A4A4A',
   'gray.1000': '#333333',
   'red.600': '#FF5E5F',
-  'red.700': '#FC4C4D'
+  'red.700': '#FC4C4D',
+  'gradient.blue': 'linear-gradient(90deg, #3291FF,  #50E3C2)',
+  'gradient.purple': 'linear-gradient(90deg, #7928CA,  #FF0080 )',
+  'gradient.orange': 'linear-gradient(90deg, #FF4D4D,  #F9CB28)',
+  'blue.fade': 'linear-gradient(45deg, #3291FF,  white)',
+  'purple.fade': 'linear-gradient(45deg, #7928CA,  white)',
+  'orange.fade': 'linear-gradient(45deg, #FF4D4D,  white)'
 }
 
 const margin = css`
@@ -72,6 +79,7 @@ const text = css`
   text-align: ${props => props.textAlign || 'default'};
   line-height: ${props => props.lh || 'default'};
   text-decoration: ${props => props.td || 'default'};
+  letter-spacing: ${props => props.ls || 'default'};
   
   @media (max-width: 800px){
     font-size: ${props => props.fs && `calc(${props.fs}*0.714)`};
@@ -94,6 +102,10 @@ const control = css`
   }
 `
 
+const custom = css`
+  ${props => props.custom || ''}
+`
+
 export const Section = styled.div`
   height: 100vh;
   display: flex;
@@ -114,6 +126,7 @@ export const Flex = styled.div`
   ${padding}
   ${position}
   ${control}
+  ${text}
 `
 
 export const Input = styled.input`
@@ -156,12 +169,12 @@ export const Select = styled.select`
 export const Heading = styled.h1`
   font-size: ${props => props.fs || '30px'};
   font-weight: ${props => props.fw || 700};
-  color: ${props => props.color || 'white'};
   ${margin}
   ${text}
   ${color}
   ${position}
   ${shape}
+  ${custom}
 `
 
 export const SubHeading = styled.h2`
@@ -175,7 +188,6 @@ export const SubHeading = styled.h2`
 `
 
 export const Text = styled.p`
-  font-family: 'Rubik', sans-serif;
   color: ${props => props.color || 'white'};
   ${margin}
   ${text}
@@ -202,12 +214,12 @@ export const Span = styled.span`
 `
 
 export const Button = styled.button`
-  height: 48px;
-  width: 150px;
+  height: 50px;
+  width: 200px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 5px;
   border: none;
   outline: none !important;
   ${shape}

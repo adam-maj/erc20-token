@@ -66,7 +66,7 @@ const color = css`
 `
 
 const text = css`
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: ${props => props.fs || 'default'};
   font-weight: ${props => props.fw || 'default'};
   text-align: ${props => props.textAlign || 'default'};
@@ -99,8 +99,10 @@ export const Section = styled.div`
   display: flex;
   justify-content: center;
   padding: 100px 20px 20px 20px;
+  ${flex}
   ${padding}
   ${margin}
+  ${color}
 `
 
 export const Flex = styled.div`

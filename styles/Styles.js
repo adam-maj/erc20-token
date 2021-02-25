@@ -5,6 +5,9 @@ export const theme = {
   'danger': '#FC4C4D',
   'dark': '#0B132A',
   'gray': '#666666',
+  'blue': '#3291FF',
+  'purple': '#7928CA',
+  'orange': '#FF4D4D',
   'gray.200': '#F6F6F6',
   'gray.300': '#F0F0F0',
   'gray.400': '#E8E8E8',
@@ -19,6 +22,7 @@ export const theme = {
   'gradient.blue': 'linear-gradient(90deg, #3291FF,  #50E3C2)',
   'gradient.purple': 'linear-gradient(90deg, #7928CA,  #FF0080 )',
   'gradient.orange': 'linear-gradient(90deg, #FF4D4D,  #F9CB28)',
+  'gray.fade': 'linear-gradient(45deg, #999, white)',
   'blue.fade': 'linear-gradient(45deg, #3291FF,  white)',
   'purple.fade': 'linear-gradient(45deg, #7928CA,  white)',
   'orange.fade': 'linear-gradient(45deg, #FF4D4D,  white)'
@@ -107,7 +111,8 @@ const custom = css`
 `
 
 export const Section = styled.div`
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 100px 20px 20px 20px;
@@ -127,6 +132,7 @@ export const Flex = styled.div`
   ${position}
   ${control}
   ${text}
+  ${custom}
 `
 
 export const Input = styled.input`
@@ -211,6 +217,18 @@ export const Span = styled.span`
   ${position}
   ${shape}
   ${text}
+`
+
+export const Link = styled.a`
+  color: ${theme.blue};
+  cursor: pointer;
+  ${color}
+  ${text}
+  ${margin}
+
+  &:hover {
+    color: black;
+  }
 `
 
 export const Button = styled.button`

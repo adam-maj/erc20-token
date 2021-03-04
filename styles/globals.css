@@ -26,3 +26,15 @@ button {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+
+.purple-gradient {
+  background: -webkit-linear-gradient(45deg, #7928CA, #FF0080) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.orange-gradient {
+  background: -webkit-linear-gradient(45deg, #FF4D4D, #F9CB28) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}

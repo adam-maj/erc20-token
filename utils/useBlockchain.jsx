@@ -78,9 +78,17 @@ export default function useBlockchain() {
       to: process.env.tokenSaleContractAddress,
       value: web3.utils.toBN(numberOfTokens * tokenPrice),
       data: data,
-      gas: 500000
+      gas: 10000
     })
   }
 
-  return { web3, account, token, tokenSale, price, tokensSold, tokensAvailable, refreshTokensBought, tokensBought, buyTokens }
+  return { 
+    account, 
+    price, 
+    tokensSold, 
+    tokensAvailable, 
+    refreshTokensBought, 
+    tokensBought, 
+    buyTokens 
+  }
 }

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Use font awesome */}
-        <script src="https://kit.fontawesome.com/ac50c301c8.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/ac50c301c8.js" crossOrigin="anonymous"></script>
 
         {/* Get google font */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />

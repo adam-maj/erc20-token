@@ -9,7 +9,7 @@ export default function useBlockchain() {
   const [token, setToken] = useState()
   const [tokenSale, setTokenSale] = useState()
   const [tokenPrice, setTokenPrice] = useState()
-  const [price, setPrice] = useState()
+  const [tokenPriceWei, setTokenPriceWei] = useState()
   const [tokensSold, setTokensSold] = useState()
   const [tokensAvailable, setTokensAvailable] = useState()
   const [tokensBought, setTokensBought] = useState()
@@ -40,29 +40,36 @@ export default function useBlockchain() {
     }
   }, [web3])
 
-  useEffect(async() => {
+  useEffect(() => {
+    if (account) {
+      // Once an account is connected, refresh the data values
+      updateData()
+    }
+  }, [account])
+
+  useEffect(() => {
     if (tokenSale) {
-      const wei = await tokenSale.methods.tokenPrice().call()
-      setTokenPrice(wei)
-      setPrice(web3.utils.fromWei(wei, "ether"))
-
-      const available = await token.methods.balanceOf(process.env.tokenSaleContractAddress).call()
-      setTokensAvailable(parseInt(available))
-
-      setTokensSold(parseInt(await tokenSale.methods.tokensSold().call()))
-
-      if (account) {
-        refreshTokensBought()
-      }
-
+      // Whenever a sell event is successfully triggered, refresh the data values
       tokenSale.events.Sell().on('data', event => {
-        console.log('Event triggered...')
-        refreshTokensBought()
+        updateData()
       })
     }
   }, [tokenSale])
 
-  async function refreshTokensBought() {
+  async function updateData() {
+    // Update the price of each token
+    const wei = await tokenSale.methods.tokenPrice().call()
+    setTokenPriceWei(wei)
+    setTokenPrice(web3.utils.fromWei(wei, "ether"))
+
+    // Update the number of available tokens
+    const available = await token.methods.balanceOf(process.env.tokenSaleContractAddress).call()
+    setTokensAvailable(parseInt(available))
+
+    // Update the number of tokens sold
+    setTokensSold(parseInt(await tokenSale.methods.tokensSold().call()))
+
+    // Update the number of tokens owned by the current account
     try {
       const bought = await token.methods.balanceOf(account).call()
       setTokensBought(bought)
@@ -76,18 +83,17 @@ export default function useBlockchain() {
     web3.eth.sendTransaction({
       from: account,
       to: process.env.tokenSaleContractAddress,
-      value: web3.utils.toBN(numberOfTokens * tokenPrice),
+      value: web3.utils.toBN(numberOfTokens * tokenPriceWei),
       data: data,
-      gas: 10000
+      gas: 500000
     })
   }
 
   return { 
     account, 
-    price, 
+    tokenPrice, 
     tokensSold, 
     tokensAvailable, 
-    refreshTokensBought, 
     tokensBought, 
     buyTokens 
   }

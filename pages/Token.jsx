@@ -4,7 +4,7 @@ import useBlockchain from '../utils/useBlockchain'
 
 export default function Token() {
   const [tokens, setTokens] = useState(0)
-  const { account, price, tokensSold, tokensAvailable, tokensBought, refreshTokensBought, buyTokens } = useBlockchain()
+  const { account, tokenPrice, tokensSold, tokensAvailable, tokensBought, refreshTokensBought, buyTokens } = useBlockchain()
 
   const total = tokensSold + tokensAvailable
 
@@ -15,7 +15,7 @@ export default function Token() {
           <Span color="black" fw="500">Connected Account:</Span> {account}
         </Text>
 
-        <Text color="#666666" width="200px" fs="14px">
+        <Text color="#666666" width="220px" fs="14px">
           You have <Span color="blue">{tokensBought || 0}</Span> tokens
         </Text>
       </Flex>
@@ -27,7 +27,7 @@ export default function Token() {
           value={tokens}
           onChange={e => setTokens(e.target.value)}
         />
-        <Input br="0px" width="260px" ml="-1px" value={`${price * tokens} ETH`} disabled />
+        <Input br="0px" width="260px" ml="-1px" value={`${tokenPrice * tokens} ETH`} disabled />
         <Button 
           color="black" 
           onClick={() => buyTokens(tokens)}

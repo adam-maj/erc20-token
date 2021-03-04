@@ -6,6 +6,8 @@ export default function Token() {
   const [tokens, setTokens] = useState(0)
   const { account, price, tokensSold, tokensAvailable, tokensBought, refreshTokensBought, buyTokens } = useBlockchain()
 
+  const total = tokensSold + tokensAvailable
+
   return (
     <Flex direction="column" mt="20px">
       <Flex justify="space-between">
@@ -14,11 +16,11 @@ export default function Token() {
         </Text>
 
         <Text color="#666666" width="200px" fs="14px">
-          You have <Span color="blue">{tokensBought}</Span> tokens
+          You have <Span color="blue">{tokensBought || 0}</Span> tokens
         </Text>
       </Flex>
 
-      <Flex>
+      <Flex mb="20px">
         <Input 
           br="5px 0px 0px 5px"
           width="260px" 
@@ -36,6 +38,32 @@ export default function Token() {
           Buy Tokens
         </Button>
       </Flex>
+
+      <Progress percent={tokensSold / total} />
+
+      <Text fs="14px" color="#666666"><Span color="black">Tokens Sold:</Span> {tokensSold}/{total}</Text>
+    </Flex>
+  )
+}
+
+function Progress({ percent }) {
+  return (
+    <Flex 
+      width="500px" 
+      height="20px"
+      bg="#EAEAEA" 
+      br="20px" 
+      mt="20px" 
+      position="relative"
+    >
+      <Flex 
+        position="absolute" 
+        left="0px" 
+        bg="#4FE0C5" 
+        width={`${percent * 500}px`} 
+        height="20px"
+        br="20px 0px 0px 20px"
+      />
     </Flex>
   )
 }

@@ -24,7 +24,6 @@ export default function useBlockchain() {
       // Get the account currently connected to our app
       web3.eth.getCoinbase((err, account) => {
         if (!err) {
-          console.log(account)
           setAccount(account)
         }
       })
@@ -48,9 +47,9 @@ export default function useBlockchain() {
       setPrice(web3.utils.fromWei(wei, "ether"))
 
       const available = await token.methods.balanceOf(process.env.tokenSaleContractAddress).call()
-      setTokensAvailable(available)
+      setTokensAvailable(parseInt(available))
 
-      setTokensSold(await tokenSale.methods.tokensSold().call())
+      setTokensSold(parseInt(await tokenSale.methods.tokensSold().call()))
 
       if (account) {
         refreshTokensBought()

@@ -4,7 +4,7 @@ import useBlockchain from '../utils/useBlockchain'
 
 export default function Token() {
   const [tokens, setTokens] = useState(0)
-  const { account, tokenPrice, tokensSold, tokensAvailable, tokensBought, refreshTokensBought, buyTokens } = useBlockchain()
+  const { account, tokenPrice, tokensSold, tokensAvailable, tokensBought, buyTokens } = useBlockchain()
 
   const total = tokensSold + tokensAvailable
 

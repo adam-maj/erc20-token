@@ -3,6 +3,7 @@ import Web3 from 'web3'
 import VonToken from '../public/abis/VonToken.json'
 import VonTokenSale from '../public/abis/VonTokenSale.json'
 
+// I made my own hook to easily interact with the blockchain from my frontend
 export default function useBlockchain() {
   const [web3, setWeb3] = useState()
   const [account, setAccount] = useState()
@@ -70,11 +71,9 @@ export default function useBlockchain() {
     setTokensSold(parseInt(await tokenSale.methods.tokensSold().call()))
 
     // Update the number of tokens owned by the current account
-    try {
+    if (account) {
       const bought = await token.methods.balanceOf(account).call()
       setTokensBought(bought)
-    } catch(err) {
-      setTokensBought(0)
     }
   }
 

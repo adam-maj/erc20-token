@@ -4,6 +4,7 @@ import useBlockchain from '../utils/useBlockchain'
 
 export default function Token() {
   const [tokens, setTokens] = useState(0)
+  // Using my own custom hook to interact with the blockchain
   const { account, tokenPrice, tokensSold, tokensAvailable, tokensBought, buyTokens } = useBlockchain()
 
   const total = tokensSold + tokensAvailable

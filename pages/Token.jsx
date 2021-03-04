@@ -10,13 +10,13 @@ export default function Token() {
   const total = tokensSold + tokensAvailable
 
   return (
-    <Flex direction="column" mt="20px">
+    <Flex direction="column" mt="20px" width="700px">
       <Flex justify="space-between">
         <Text color="#666666" fs="14px" width="100%">
           <Span color="black" fw="500">Connected Account:</Span> {account}
         </Text>
 
-        <Text color="#666666" width="220px" fs="14px">
+        <Text color="#666666" width="220px" fs="14px" textAlign="right">
           You have <Span color="blue">{tokensBought || 0}</Span> tokens
         </Text>
       </Flex>

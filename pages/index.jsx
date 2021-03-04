@@ -33,8 +33,6 @@ export default function index() {
         Von Token
       </Heading>
 
-      <i className="fa fa-exchange" aria-hidden="true"></i>
-
       <Flex mb="20px">
         <Option
           onClick={() => setAbout(false)}

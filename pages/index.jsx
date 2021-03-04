@@ -2,6 +2,23 @@ import { useState } from 'react'
 import { Section, Heading, Button, Flex } from '../styles/Styles'
 import About from './About'
 import Token from './Token'
+import styled, { css } from 'styled-components'
+
+const Option = styled(Button)`
+  ${props => props.active ? css`
+    background: black;
+    color: white;
+  ` : css`
+    color: #666666;
+    border: 1px solid #EAEAEA;
+
+    &:hover {
+      background: white; 
+      color: black; 
+      border: 1px solid black;
+    }
+  `}
+`
 
 export default function index() {
   const [about, setAbout] = useState(false)
@@ -15,47 +32,24 @@ export default function index() {
       >
         Von Token
       </Heading>
-      
-      <Flex>
-        <Button 
-          onClick={() => setAbout(false)}
-          color="black" 
-          hover="background: white; color: black; border: 1px solid black;" 
-          mr="10px"
-          primary
-        >
-          Buy Tokens
-        </Button>
-        <Button
-          onClick={() => setAbout(true)}
-          color="gray"
-          border="1px solid #EAEAEA"
-          hover="border-color: black; color: black;"
-          ml="20px"
-        >
-          About Project
-        </Button>
-      </Flex>
 
-      <Flex>
-      <Button 
+      <i className="fa fa-exchange" aria-hidden="true"></i>
+
+      <Flex mb="20px">
+        <Option
           onClick={() => setAbout(false)}
-          color="black" 
-          hover="background: white; color: black; border: 1px solid black;" 
-          mr="10px"
-          primary
+          br="5px 0px 0px 5px"
+          active={!about}
         >
-          Buy Tokens
-        </Button>
-        <Button
+          Token Sale
+        </Option>
+        <Option
           onClick={() => setAbout(true)}
-          color="gray"
-          border="1px solid #EAEAEA"
-          hover="border-color: black; color: black;"
-          ml="20px"
+          br="0px 5px 5px 0px"
+          active={about}
         >
           About Project
-        </Button>
+        </Option>
       </Flex>
 
       {about && <About />}

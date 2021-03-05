@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Text, Button, Flex, Input, Span } from '../styles/Styles'
+import { Text, Button, Flex, Input, Span, Link } from '../styles/Styles'
 import useBlockchain from '../utils/useBlockchain'
 
 export default function Token() {
@@ -11,15 +11,30 @@ export default function Token() {
 
   return (
     <Flex direction="column" mt="20px" width="700px">
-      <Flex justify="space-between">
-        <Text color="#666666" fs="14px" width="100%">
-          <Span color="black" fw="500">Connected Account:</Span> {account}
-        </Text>
+      {account ? (
+        <Flex justify="space-between">
+          <Text color="#666666" fs="14px" width="100%">
+            <Span color="black" fw="500">Connected Account:</Span> {account}
+          </Text>
 
-        <Text color="#666666" width="220px" fs="14px" textAlign="right">
-          You have <Span color="blue">{tokensBought || 0}</Span> tokens
+          <Text color="#666666" width="220px" fs="14px" textAlign="right">
+            You have <Span color="blue">{tokensBought || 0}</Span> tokens
+          </Text>
+        </Flex>
+      ) : (
+        <Text color="danger" fs="12px">
+          You need to install&nbsp;
+          <Link 
+            href="https://metamask.io/" 
+            target="_blank" 
+            color="danger" 
+            fw="bold" 
+            hover="cursor: pointer; color: #FC4C4D; text-decoration: underline;"
+          >
+            MetaMask
+          </Link>&nbsp;to use this application.
         </Text>
-      </Flex>
+      )}
 
       <Flex mb="20px">
         <Input 
@@ -28,10 +43,11 @@ export default function Token() {
           value={tokens}
           onChange={e => setTokens(e.target.value)}
         />
-        <Input br="0px" width="260px" ml="-1px" value={`${tokenPrice * tokens} ETH`} disabled />
+        <Input br="0px" width="260px" ml="-1px" value={`${tokenPrice * tokens || 0.001 * tokens} ETH`} disabled />
         <Button 
           color="black" 
           onClick={() => buyTokens(tokens)}
+          disabled={!account}
           br="0px 5px 5px 0px" 
           width="180px"
           primary
@@ -42,7 +58,10 @@ export default function Token() {
 
       <Progress percent={tokensSold / total} />
 
-      <Text fs="14px" color="#666666"><Span color="black">Tokens Sold:</Span> {tokensSold}/{total}</Text>
+      <Text fs="14px" color="#666666">
+        <Span color="black">Tokens Sold:</Span>&nbsp;
+        {account ? (tokensSold / total) : "?/750000"}
+        </Text>
     </Flex>
   )
 }

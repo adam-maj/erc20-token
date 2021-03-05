@@ -223,12 +223,14 @@ export const Link = styled.a`
   color: ${theme.blue};
   cursor: pointer;
   ${color}
-  ${text}
-  ${margin}
 
   &:hover {
     color: black;
   }
+  
+  ${text}
+  ${margin}
+  ${control}
 `
 
 export const Button = styled.button`

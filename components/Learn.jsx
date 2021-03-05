@@ -1,5 +1,5 @@
 import { Paragraph, Left, Right } from './Layout'
-import { Text, Link } from '../styles/Styles'
+import { Text, Link, Image } from '../styles/Styles'
 import styled from 'styled-components'
 import Bubble from './Bubble'
 import Header from './Header'
@@ -34,6 +34,10 @@ export default function Learn() {
       </Paragraph>
 
       <Timeline top>
+        <Left>
+          <Image src="./crypto.png" />
+        </Left>
+
         <Right>
           <Heading mb="0px">Blockchain Algorithms</Heading>
           <Paragraph>

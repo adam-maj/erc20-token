@@ -3,7 +3,7 @@ import { Flex } from '../styles/Styles'
 export default function Bubble({ color, children }) {
   return (
     <>
-      <Flex width="1px" bg={`${color}.fade`} height="100px" />
+      <Flex width="1px" bg={`${color}.fade`} height="120px" />
       <Flex 
         br="25px" 
         fs="0.9rem"

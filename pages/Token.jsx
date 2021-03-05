@@ -60,7 +60,7 @@ export default function Token() {
 
       <Text fs="14px" color="#666666">
         <Span color="black">Tokens Sold:</Span>&nbsp;
-        {account ? (tokensSold / total) : "?/750000"}
+        {account ? `${tokensSold}/${total}` : "?/750000"}
         </Text>
     </Flex>
   )

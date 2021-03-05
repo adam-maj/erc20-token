@@ -221,16 +221,17 @@ export const Span = styled.span`
 
 export const Link = styled.a`
   color: ${theme.blue};
-  cursor: pointer;
   ${color}
 
   &:hover {
     color: black;
   }
-  
+
   ${text}
   ${margin}
   ${control}
+
+  cursor: pointer;
 `
 
 export const Button = styled.button`

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Section, Heading, Button, Flex } from '../styles/Styles'
+import { Section, Heading, Button, Flex, Link } from '../styles/Styles'
 import About from './About'
 import Token from './Token'
 import styled, { css } from 'styled-components'
@@ -25,13 +25,15 @@ export default function index() {
 
   return (
     <Section direction="column" justify="flex-start" height="auto">
-      <Heading 
-        fs="4rem" 
-        ls="-0.05em"
-        className="blue-gradient"
-      >
-        Von Token
-      </Heading>
+      <Link href="https://www.youtube.com/watch?v=hzt31eJTGxo" target="_blank">
+        <Heading 
+          fs="4rem" 
+          ls="-0.05em"
+          className="blue-gradient"
+        >
+          Von Token
+        </Heading>
+      </Link>
 
       <Flex mb="20px">
         <Option

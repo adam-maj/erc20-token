@@ -1,4 +1,5 @@
-import { Text, Link } from '../styles/Styles'
+import { Paragraph, Heading, Left, Right } from './Layout'
+import { Link, Image } from '../styles/Styles'
 import Bubble from './Bubble'
 import Header from './Header'
 import Timeline from './Timeline'
@@ -9,11 +10,7 @@ export default function Deploy() {
       <Bubble color="orange">3</Bubble>
       <Header color="orange-gradient" section="Deploy" heading="Creating a decentralized app" />
 
-      <Text
-        color="gray"
-        fw="400"
-        fs="1rem"
-        lh="1.6rem"
+      <Paragraph
         maxWidth="700px"
         textAlign="center"
         mb="80px"
@@ -26,10 +23,54 @@ export default function Deploy() {
         I decided to make an ICO application that allows users to purchase Von Token 
         in exchange for Ether. After building out thsi application, I deployed it 
         to an Ethereum test network and deployed this website along with it!
-      </Text>
+      </Paragraph>
 
-      <Timeline top/>
-      <Timeline />
+      <Timeline top>
+        <Left>
+
+        </Left>
+
+        <Right>
+          <Heading>Learning Blockchain Technologies</Heading>
+          <Paragraph>
+            In order to build the frontend of my application, 
+            I had to learn some of the most popular technologies used for blockchain development today including&nbsp;
+            <Link href="https://www.trufflesuite.com/truffle" target="_blank">Truffle</Link>,&nbsp;
+            <Link href="https://github.com/ChainSafe/web3.js" target="_blank">Web3</Link>, and&nbsp;
+            <Link href="https://www.trufflesuite.com/ganache" target="_blank">Ganache</Link>.
+          </Paragraph>
+        </Right>
+      </Timeline>
+
+      <Timeline>
+        <Left>
+
+        </Left>
+
+        <Right>
+          <Heading>Building the DApp</Heading>
+          <Paragraph>
+            Using these new tehcnologies, I built my frontend to integrate with&nbsp;
+            <Link href="https://metamask.io/" target="_blank">MetaMask</Link> 
+            and communicate directly with the blockchain.
+          </Paragraph>
+        </Right>
+      </Timeline>
+
+      <Timeline>
+        <Left>
+
+        </Left>
+
+        <Right>
+          <Heading>Going Live</Heading>
+          <Paragraph>
+            Finally, I deployed my smart contracts to the live&nbsp;
+            <Link href="https://www.rinkeby.io/#stats" target="_blank">Rinkeby</Link>&nbsp;
+            test network and I deployed this web application (the site you're on right now).
+          </Paragraph>
+        </Right>
+      </Timeline>
     </>
   )
 }

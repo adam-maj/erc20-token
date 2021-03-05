@@ -1,4 +1,13 @@
 import { Flex, Text } from '../styles/Styles'
+import styled from 'styled-components'
+
+export const Heading = styled(Text)`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: black;
+  width: 400px;
+  margin-bottom: 0px;
+`
 
 export function Paragraph({ children, ...props }) {
   return (

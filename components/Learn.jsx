@@ -1,16 +1,8 @@
-import { Paragraph, Left, Right } from './Layout'
-import { Text, Link, Image } from '../styles/Styles'
-import styled from 'styled-components'
+import { Heading, Paragraph, Left, Right } from './Layout'
+import { Link, Image } from '../styles/Styles'
 import Bubble from './Bubble'
 import Header from './Header'
 import Timeline from './Timeline'
-
-const Heading = styled(Text)`
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: black;
-  width: 400px;
-`
 
 export default function Learn() {
   return (
@@ -39,7 +31,7 @@ export default function Learn() {
         </Left>
 
         <Right>
-          <Heading mb="0px">Blockchain Algorithms</Heading>
+          <Heading>Blockchain Algorithms</Heading>
           <Paragraph>
             I looked into blockchains at an algorithmic level to ensure that 
             I had a strong understanding of the fundamentals.
@@ -49,7 +41,7 @@ export default function Learn() {
 
       <Timeline>
         <Right>
-          <Heading mb="0px">Smart Contracts</Heading>
+          <Heading>Smart Contracts</Heading>
           <Paragraph>
             Next, I learned the Turing complete blockchain language&nbsp;
             <Link href="https://soliditylang.org/" target="blank_">Solidity</Link>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Section, Heading, Button, Flex, Link } from '../styles/Styles'
+import { Section, Heading, Button, Flex, Link, Text } from '../styles/Styles'
 import About from './About'
 import Token from './Token'
 import styled, { css } from 'styled-components'
@@ -24,7 +24,7 @@ export default function index() {
   const [about, setAbout] = useState(false)
 
   return (
-    <Section direction="column" justify="flex-start" height="auto">
+    <Section direction="column" justify="flex-start" height="auto" pb="200px">
       <Link href="https://www.youtube.com/watch?v=hzt31eJTGxo" target="_blank">
         <Heading 
           fs="4rem" 
@@ -54,6 +54,10 @@ export default function index() {
 
       {about && <About />}
       {!about && <Token />}
+
+      <Text position="fixed" bottom="0px" color="gray" fs="14px">
+        Made with 🥶by <Link href="https://adammaj.com" target="_blank">Adam Majmudar</Link>
+      </Text>
     </Section>
   )
 }

@@ -1,4 +1,4 @@
-import { Text } from '../styles/Styles'
+import { Text, Flex } from '../styles/Styles'
 import Learn from '../components/Learn'
 import Deploy from '../components/Deploy'
 import Build from '../components/Build'

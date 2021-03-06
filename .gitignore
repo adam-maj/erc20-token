@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 package-lock.json
-next.config.js
 
 # testing
 /coverage

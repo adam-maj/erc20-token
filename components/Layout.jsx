@@ -24,17 +24,17 @@ export function Paragraph({ children, ...props }) {
   )
 }
 
-export function Left({ children }) {
+export function Left({ children, ...props }) {
   return (
-    <Flex direction="column" align="flex-end" position="absolute" right="40px">
+    <Flex direction="column" align="flex-end" position="absolute" right="40px" {...props}>
       {children}
     </Flex>
   )
 }
 
-export function Right({ children }) {
+export function Right({ children, ...props }) {
   return (
-    <Flex direction="column" align="flex-start" position="absolute" left="40px">
+    <Flex direction="column" align="flex-start" position="absolute" left="40px" {...props}>
       {children}
     </Flex>
   )

@@ -7,7 +7,7 @@ import Timeline from './Timeline'
 export default function Deploy() {
   return (
     <>
-      <Bubble color="orange">3</Bubble>
+      <Bubble color="orange" height="160px">3</Bubble>
       <Header color="orange-gradient" section="Deploy" heading="Creating a decentralized app" />
 
       <Paragraph
@@ -26,8 +26,8 @@ export default function Deploy() {
       </Paragraph>
 
       <Timeline top>
-        <Left>
-
+        <Left right="50px">
+          <Image src="./Stack.png" width="390px" br="10px" />
         </Left>
 
         <Right>
@@ -43,23 +43,23 @@ export default function Deploy() {
       </Timeline>
 
       <Timeline>
-        <Left>
-
+        <Left right="50px">
+          <Image src="./DApp.jpg" width="390px" br="10px" />
         </Left>
 
         <Right>
           <Heading>Building the DApp</Heading>
           <Paragraph>
             Using these new tehcnologies, I built my frontend to integrate with&nbsp;
-            <Link href="https://metamask.io/" target="_blank">MetaMask</Link> 
-            and communicate directly with the blockchain.
+            <Link href="https://metamask.io/" target="_blank">MetaMask</Link>
+            &nbsp;and communicate directly with the blockchain.
           </Paragraph>
         </Right>
       </Timeline>
 
       <Timeline>
-        <Left>
-
+        <Left right="45px">
+          <Image src="./Live.jpg" width="400px" br="10px" />
         </Left>
 
         <Right>

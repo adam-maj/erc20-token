@@ -7,7 +7,7 @@ import Timeline from './Timeline'
 export default function Learn() {
   return (
     <>
-      <Bubble color="blue">1</Bubble>
+      <Bubble color="blue" height="100px">1</Bubble>
       <Header color="blue-gradient" section="Learn" heading="Learning about smart contracts" />
 
       <Paragraph
@@ -27,7 +27,7 @@ export default function Learn() {
 
       <Timeline top>
         <Left>
-          <Image src="./crypto.png" />
+          <Image src="./Crypto.jpg" width="400px" />
         </Left>
 
         <Right>
@@ -40,6 +40,10 @@ export default function Learn() {
       </Timeline>
 
       <Timeline>
+        <Left right="50px">
+          <Image src="./Contract.png" width="390px" br="10px" />
+        </Left>
+
         <Right>
           <Heading>Smart Contracts</Heading>
           <Paragraph>
@@ -53,6 +57,9 @@ export default function Learn() {
       </Timeline>
 
       <Timeline>
+        <Left right="90px">
+          <Image src="./ERC20.jpg" width="350px" br="10px" />
+        </Left>
         <Right>
           <Heading mb="0px">ERC-20 Tokens</Heading>
           <Paragraph>

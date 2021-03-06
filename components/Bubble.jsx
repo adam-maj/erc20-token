@@ -1,9 +1,9 @@
 import { Flex } from '../styles/Styles'
 
-export default function Bubble({ color, children }) {
+export default function Bubble({ color, children, height }) {
   return (
     <>
-      <Flex width="1px" bg={`${color}.fade`} height="120px" />
+      <Flex width="1px" bg={`${color}.fade`} height={height} />
       <Flex 
         br="25px" 
         fs="0.9rem"

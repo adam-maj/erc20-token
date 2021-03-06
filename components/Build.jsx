@@ -7,7 +7,7 @@ import Timeline from './Timeline'
 export default function Build() {
   return (
     <>
-      <Bubble color="purple">2</Bubble>
+      <Bubble color="purple" height="180px">2</Bubble>
       <Header color="purple-gradient" section="Build" heading="Building my own token" />
 
       <Paragraph
@@ -22,7 +22,7 @@ export default function Build() {
 
       <Timeline top>
         <Left>
-
+          <Image src="./Code.jpg" width="385px" br="10px" />
         </Left>
 
         <Right>
@@ -42,7 +42,7 @@ export default function Build() {
 
       <Timeline>
         <Left>
-
+          <Image src="./Security.png" width="385px" br="10px" />
         </Left>
 
         <Right>

@@ -24,7 +24,7 @@ export default function index() {
   const [about, setAbout] = useState(false)
 
   return (
-    <Section direction="column" justify="flex-start" height="auto" pb="200px">
+    <Section direction="column" justify="flex-start" height="auto">
       <Link href="https://www.youtube.com/watch?v=hzt31eJTGxo" target="_blank">
         <Heading 
           fs="4rem" 
@@ -54,10 +54,6 @@ export default function index() {
 
       {about && <About />}
       {!about && <Token />}
-
-      <Text position="fixed" bottom="0px" color="gray" fs="14px">
-        Made with 🥶by <Link href="https://adammaj.com" target="_blank">Adam Majmudar</Link>
-      </Text>
     </Section>
   )
 }

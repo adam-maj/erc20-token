@@ -217,6 +217,7 @@ export const Span = styled.span`
   ${position}
   ${shape}
   ${text}
+  ${control}
 `
 
 export const Link = styled.a`

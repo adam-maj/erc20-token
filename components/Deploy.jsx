@@ -50,8 +50,8 @@ export default function Deploy() {
         <Right>
           <Heading>Building the DApp</Heading>
           <Paragraph>
-            Using these new technologies, I&nbsp;
-            <Link href="https://github.com/adam-maj/erc20-token/">built my application</Link>
+            Using these new technologies, I made my own&nbsp;
+            <Link href="https://github.com/adam-maj/erc20-token/blob/main/utils/useBlockchain.jsx" target="_blank">custom React hook</Link>
             &nbsp;to integrate with&nbsp;
             <Link href="https://metamask.io/" target="_blank">MetaMask</Link>
             &nbsp;and communicate directly with the blockchain. This was the most difficult part of

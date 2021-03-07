@@ -1,27 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Text, Button, Flex, Input, Span, Link } from '../styles/Styles'
 import useBlockchain from '../utils/useBlockchain'
 
 export default function Token() {
   const [tokens, setTokens] = useState(0)
+  
   // Using my own custom hook to interact with the blockchain
-  const { account, tokenPrice, tokensSold, tokensAvailable, tokensBought, buyTokens } = useBlockchain()
+  const { 
+    loading, 
+    web3, 
+    account, 
+    tokenPrice, 
+    tokensSold, 
+    tokensAvailable, 
+    tokensBought, 
+    buyTokens, 
+    connectAccount 
+  } = useBlockchain()
 
   const total = tokensSold + tokensAvailable
 
+  if (loading) {
+    return null
+  }
+
   return (
     <Flex direction="column" mt="20px" width="700px">
-      {account ? (
-        <Flex justify="space-between">
-          <Text color="#666666" fs="14px" width="100%">
-            <Span color="black" fw="500">Connected Account:</Span> {account}
-          </Text>
-
-          <Text color="#666666" width="220px" fs="14px" textAlign="right">
-            You have <Span color="blue">{tokensBought || 0}</Span> tokens
-          </Text>
-        </Flex>
-      ) : (
+      {!web3.currentProvider ? (
         <Text color="danger" fs="12px">
           You need to install&nbsp;
           <Link 
@@ -34,6 +39,28 @@ export default function Token() {
             MetaMask
           </Link>&nbsp;to use this application.
         </Text>
+      ) : !account ? (
+        <Text color="danger" fs="12px">
+          You need to&nbsp;
+          <Span 
+            onClick={connectAccount} 
+            hover="cursor: pointer; color: #FC4C4D; text-decoration: underline;" 
+            fw="bold"
+          >
+            connect your MetaMask account
+          </Span>
+          &nbsp;to use this application.
+        </Text>
+      ) : (
+        <Flex justify="space-between">
+          <Text color="#666666" fs="14px" width="100%">
+            <Span color="black" fw="500">Connected Account:</Span> {account}
+          </Text>
+
+          <Text color="#666666" width="220px" fs="14px" textAlign="right">
+            You have <Span color="blue">{tokensBought || 0}</Span> tokens
+          </Text>
+        </Flex>
       )}
 
       <Flex mb="20px">
@@ -47,7 +74,6 @@ export default function Token() {
         <Button 
           color="black" 
           onClick={() => buyTokens(tokens)}
-          disabled={!account}
           br="0px 5px 5px 0px" 
           width="180px"
           primary

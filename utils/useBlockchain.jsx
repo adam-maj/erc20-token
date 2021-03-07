@@ -5,6 +5,7 @@ import VonTokenSale from '../public/abis/VonTokenSale.json'
 
 // I made my own hook to easily interact with the blockchain from my frontend
 export default function useBlockchain() {
+  const [loading, setLoading] = useState(true)
   const [web3, setWeb3] = useState()
   const [account, setAccount] = useState()
   const [token, setToken] = useState()
@@ -17,15 +18,21 @@ export default function useBlockchain() {
 
   useEffect(() => {
     // Initialize web3 connection
-    setWeb3(new Web3(Web3.givenProvider || 'http://localhost:7545'))
+    setWeb3(new Web3(Web3.givenProvider))
   }, [])
 
   useEffect(async () => {
+    if (web3 && !web3.currentProvider) {
+      setLoading(false)
+    }
+
     if (web3) {
       // Get the account currently connected to our app
       web3.eth.getCoinbase((err, account) => {
-        if (!err) {
+        if (!err && account) {
           setAccount(account)
+        } else {
+          setLoading(false)
         }
       })
 
@@ -41,10 +48,11 @@ export default function useBlockchain() {
     }
   }, [web3])
 
-  useEffect(() => {
+  useEffect(async () => {
     if (account) {
       // Once an account is connected, refresh the data values
-      updateData()
+      await updateData()
+      setLoading(false)
     }
   }, [account])
 
@@ -77,23 +85,38 @@ export default function useBlockchain() {
     }
   }
 
-  async function buyTokens(numberOfTokens) {
-    const data = tokenSale.methods.buyTokens(numberOfTokens).encodeABI()
-    web3.eth.sendTransaction({
-      from: account,
-      to: process.env.tokenSaleContractAddress,
-      value: web3.utils.toBN(numberOfTokens * tokenPriceWei),
-      data: data,
-      gas: 500000
+  // Opens up a metamask prompt asking the user to sign in
+  function connectAccount() {
+    if (window.ethereum) {
+      window.ethereum.enable().then(([account]) => {
+      setAccount(account)
     })
+    }
+  }
+
+  function buyTokens(numberOfTokens) {
+    if (web3) {
+      const data = tokenSale.methods.buyTokens(numberOfTokens).encodeABI()
+
+      web3.eth.sendTransaction({
+        from: account,
+        to: process.env.tokenSaleContractAddress,
+        value: web3.utils.toBN(numberOfTokens * tokenPriceWei),
+        data: data,
+        gas: 500000
+      })
+    }
   }
 
   return { 
+    loading, 
+    web3,
     account, 
     tokenPrice, 
     tokensSold, 
     tokensAvailable, 
     tokensBought, 
-    buyTokens 
+    buyTokens,
+    connectAccount
   }
 }

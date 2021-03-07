@@ -21,7 +21,7 @@ export default function Deploy() {
         </Link>
         &nbsp;(DApp) to interact with my smart contracts. 
         I decided to make an ICO application that allows users to purchase Von Token 
-        in exchange for Ether. After building out thsi application, I deployed it 
+        in exchange for Ether. After building out this application, I deployed it 
         to an Ethereum test network and deployed this website along with it!
       </Paragraph>
 

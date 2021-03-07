@@ -69,7 +69,7 @@ export default function Deploy() {
           <Heading>Going Live</Heading>
           <Paragraph>
             Finally, I deployed my smart contracts to the live&nbsp;
-            <Link href="https://www.rinkeby.io/#stats" target="_blank">Rinkeby</Link>
+            <Link href="https://ropsten.etherscan.io/" target="_blank">Ropsten</Link>
             &nbsp;test network using&nbsp;
             <Link href="https://infura.io/">Infura</Link>
             &nbsp;and I deployed this web application (the site you're on right now).

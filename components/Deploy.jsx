@@ -50,9 +50,12 @@ export default function Deploy() {
         <Right>
           <Heading>Building the DApp</Heading>
           <Paragraph>
-            Using these new tehcnologies, I built my frontend to integrate with&nbsp;
+            Using these new technologies, I&nbsp;
+            <Link href="https://github.com/adam-maj/erc20-token/">built my application</Link>
+            &nbsp;to integrate with&nbsp;
             <Link href="https://metamask.io/" target="_blank">MetaMask</Link>
-            &nbsp;and communicate directly with the blockchain.
+            &nbsp;and communicate directly with the blockchain. This was the most difficult part of
+            project since it involved many different moving parts, but I learned a lot from it.
           </Paragraph>
         </Right>
       </Timeline>
@@ -66,8 +69,10 @@ export default function Deploy() {
           <Heading>Going Live</Heading>
           <Paragraph>
             Finally, I deployed my smart contracts to the live&nbsp;
-            <Link href="https://www.rinkeby.io/#stats" target="_blank">Rinkeby</Link>&nbsp;
-            test network and I deployed this web application (the site you're on right now).
+            <Link href="https://www.rinkeby.io/#stats" target="_blank">Rinkeby</Link>
+            &nbsp;test network using&nbsp;
+            <Link href="https://infura.io/">Infura</Link>
+            &nbsp;and I deployed this web application (the site you're on right now).
           </Paragraph>
         </Right>
       </Timeline>

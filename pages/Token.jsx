@@ -126,6 +126,7 @@ function Progress({ percent }) {
         left="0px" 
         bg="#4FE0C5" 
         width={`${percent * 500}px`} 
+        minWidth="15px"
         height="20px"
         br="20px 0px 0px 20px"
       />

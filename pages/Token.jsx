@@ -44,15 +44,15 @@ export default function Token() {
         <Text color="danger" fs="12px">
           Please&nbsp;
           <Link 
-            href="https://metamask.io/" 
+            href="/MetaMask.mp4" 
             target="_blank" 
             color="danger" 
             fw="bold" 
             hover="cursor: pointer; color: #FC4C4D; text-decoration: underline;"
           >
-            connect to the Ropsten network
+            connect MetaMask to the Ropsten network
           </Link>
-          &nbsp;on MetaMask to use this application.
+          &nbsp;to use this application.
         </Text>
       ): !account ? (
         <Text color="danger" fs="12px">

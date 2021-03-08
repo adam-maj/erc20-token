@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Text, Button, Flex, Input, Span, Link } from '../styles/Styles'
 import useBlockchain from '../utils/useBlockchain'
+import Signature from '../components/Signature'
 
 export default function Token() {
   const [tokens, setTokens] = useState(0)
@@ -104,9 +105,9 @@ export default function Token() {
         {account ? `${tokensSold}/${total}` : "?/750000"}
       </Text>
 
-      <Text position="fixed" bottom="0px" color="gray" fs="14px">
-        Made with 🥶by <Link href="https://adammaj.com" target="_blank">Adam Majmudar</Link>
-      </Text>
+      <Flex position="fixed" bottom="0px" direction="column">
+        <Signature />
+      </Flex>
     </Flex>
   )
 }

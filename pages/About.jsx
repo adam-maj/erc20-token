@@ -1,13 +1,14 @@
-import { Text, Link } from '../styles/Styles'
+import { Text, Flex } from '../styles/Styles'
+import Signature from '../components/Signature'
 import Learn from '../components/Learn'
-import Deploy from '../components/Deploy'
 import Build from '../components/Build'
+import Deploy from '../components/Deploy'
 
 export default function Home() {
   return (
     <>
       <Text 
-        mt="80px"
+        mt="60px"
         fs="0.75rem" 
         ls="0.2em" 
         color="black" 
@@ -21,9 +22,9 @@ export default function Home() {
       <Build />
       <Deploy />
 
-      <Text mt="250px" mb="-10px" color="gray" fs="14px">
-        Made with 🥶by <Link href="https://adammaj.com" target="_blank">Adam Majmudar</Link>
-      </Text>
+      <Flex direction="column" mt="250px" mb="-10px">
+        <Signature />
+      </Flex>
     </>
   )
 }

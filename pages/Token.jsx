@@ -44,7 +44,7 @@ export default function Token() {
         <Text color="danger" fs="12px">
           Please&nbsp;
           <Link 
-            href="/MetaMask.mp4" 
+            href="/Ropsten.mp4" 
             target="_blank" 
             color="danger" 
             fw="bold" 

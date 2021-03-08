@@ -8,6 +8,7 @@ export default function Token() {
   // Using my own custom hook to interact with the blockchain
   const { 
     loading, 
+    network,
     web3, 
     account, 
     tokenPrice, 
@@ -39,7 +40,21 @@ export default function Token() {
             MetaMask
           </Link>&nbsp;to use this application.
         </Text>
-      ) : !account ? (
+      ) : network !== 'ropsten' ? (
+        <Text color="danger" fs="12px">
+          Please&nbsp;
+          <Link 
+            href="https://metamask.io/" 
+            target="_blank" 
+            color="danger" 
+            fw="bold" 
+            hover="cursor: pointer; color: #FC4C4D; text-decoration: underline;"
+          >
+            connect to the Ropsten network
+          </Link>
+          &nbsp;on MetaMask to use this application.
+        </Text>
+      ): !account ? (
         <Text color="danger" fs="12px">
           You need to&nbsp;
           <Span 

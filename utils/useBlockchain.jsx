@@ -6,6 +6,7 @@ import VonTokenSale from '../public/abis/VonTokenSale.json'
 // I made my own hook to easily interact with the blockchain from my frontend
 export default function useBlockchain() {
   const [loading, setLoading] = useState(true)
+  const [network, setNetwork] = useState()
   const [web3, setWeb3] = useState()
   const [account, setAccount] = useState()
   const [token, setToken] = useState()
@@ -27,26 +28,47 @@ export default function useBlockchain() {
     }
 
     if (web3) {
-      // Get the account currently connected to our app
-      web3.eth.getCoinbase((err, account) => {
-        if (!err && account) {
-          setAccount(account)
-        } else {
-          setLoading(false)
-        }
+      // Prompt window to refresh on given events
+      window.ethereum.on('chainChanged', () => {
+        window.location.reload()
       })
 
-      // Initialize VonToken contract to use in app
-      const vonToken = new web3.eth.Contract(VonToken.abi, process.env.tokenContractAddress)
-      vonToken.setProvider(web3.currentProvider)
-      setToken(vonToken)
-  
-      // Initialize VonTokenSale contract to use in app
-      const vonTokenSale = new web3.eth.Contract(VonTokenSale.abi, process.env.tokenSaleContractAddress)
-      vonTokenSale.setProvider(web3.currentProvider)
-      setTokenSale(vonTokenSale)
+      window.ethereum.on('disconnect', () => {
+        window.location.reload()
+      })
+
+      const network = await web3.eth.net.getNetworkType()
+      setNetwork(network)
+
+      // Require that users connect to the ropsten network
+      if (network === 'ropsten') {
+        // Get the account currently connected to our app
+        web3.eth.getCoinbase((err, account) => {
+          if (!err && account) {
+            setAccount(account)
+          } else {
+            setLoading(false)
+          }
+        })
+
+        // Initialize VonToken contract to use in app
+        const vonToken = new web3.eth.Contract(VonToken.abi, process.env.tokenContractAddress)
+        vonToken.setProvider(web3.currentProvider)
+        setToken(vonToken)
+    
+        // Initialize VonTokenSale contract to use in app
+        const vonTokenSale = new web3.eth.Contract(VonTokenSale.abi, process.env.tokenSaleContractAddress)
+        vonTokenSale.setProvider(web3.currentProvider)
+        setTokenSale(vonTokenSale)
+      }
     }
   }, [web3])
+
+  useEffect(() => {
+    if (network && network !== 'ropsten') {
+      setLoading(false)
+    }
+  }, [network])
 
   useEffect(async () => {
     if (account) {
@@ -110,6 +132,7 @@ export default function useBlockchain() {
 
   return { 
     loading, 
+    network,
     web3,
     account, 
     tokenPrice, 

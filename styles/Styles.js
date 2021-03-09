@@ -84,10 +84,6 @@ const text = css`
   line-height: ${props => props.lh || 'default'};
   text-decoration: ${props => props.td || 'default'};
   letter-spacing: ${props => props.ls || 'default'};
-  
-  @media (max-width: 800px){
-    font-size: ${props => props.fs && `calc(${props.fs}*0.714)`};
-  }
 `
 
 const position = css`

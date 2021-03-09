@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Text, Button, Flex, Input, Span, Link } from '../styles/Styles'
 import useBlockchain from '../utils/useBlockchain'
-import Signature from '../components/Signature'
+import Signature from './Signature'
 
-export default function Token() {
+export default function Sale() {
   const [tokens, setTokens] = useState(0)
   
   // Using my own custom hook to interact with the blockchain

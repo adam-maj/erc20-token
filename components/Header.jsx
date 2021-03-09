@@ -14,6 +14,7 @@ export default function Header({ color, section, heading }) {
         {section}
       </Text>
       <Heading 
+        textAlign="center"
         fs="4rem" 
         ls="-0.05rem"
         mt="20px"

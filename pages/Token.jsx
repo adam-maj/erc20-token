@@ -68,15 +68,38 @@ export default function Token() {
           &nbsp;to use this application.
         </Text>
       ) : (
-        <Flex justify="space-between">
-          <Text color="#666666" fs="14px" width="100%">
-            <Span color="black" fw="500">Connected Account:</Span> {account}
+        <>
+          <Text color="#999999" fs="12px" mb="24px">
+            Don't have any test ETH? Get some from the&nbsp;
+            <Link 
+              href="https://faucet.ropsten.be/" 
+              target="_blank" 
+              color="#999999" 
+              fw="bold" 
+              hover="cursor: pointer; color: #999999; text-decoration: underline;"
+            >
+              Ropsten faucet
+            </Link>&nbsp;by&nbsp;
+            <Link 
+              href="/Faucet.mp4" 
+              target="_blank" 
+              color="#999999" 
+              fw="bold" 
+              hover="cursor: pointer; color: #999999; text-decoration: underline;"
+            >
+              following this
+            </Link>.
           </Text>
+          <Flex justify="space-between">
+            <Text color="#666666" fs="14px" width="100%">
+              <Span color="black" fw="500">Connected Account:</Span> {account}
+            </Text>
 
-          <Text color="#666666" width="220px" fs="14px" textAlign="right">
-            You have <Span color="blue">{tokensBought || 0}</Span> tokens
-          </Text>
-        </Flex>
+            <Text color="#666666" width="220px" fs="14px" textAlign="right">
+              You have <Span color="blue">{tokensBought || 0}</Span> tokens
+            </Text>
+          </Flex>
+        </>
       )}
 
       <Flex mb="20px">

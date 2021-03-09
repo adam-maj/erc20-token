@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:image" content="https://vontoken.vercel.app/Live.png" />
 
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:creator" content="@MamudarAdam"/>
+        <meta property="twitter:creator" content="@MajmudarAdam"/>
         <meta proprety="twitter:title" content="Von Token" />
         <meta property="twitter:description" content="Not from 63rd" />
 

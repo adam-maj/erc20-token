@@ -56,12 +56,25 @@ export default function index() {
             fs="4rem" 
             ls="-0.05em"
             className="blue-gradient"
+            mb="0px"
           >
             Von Token
           </Heading>
+          <Text 
+            mt="0px"
+            fs="0.75rem" 
+            ls="0.2em" 
+            color="gray.700" 
+            fw="600"
+            mb="0px"
+            textAlign="center"
+            cursor="pointer"
+          >
+            NOT FROM 63RD
+          </Text>
         </Link>
 
-        <Flex mb="20px">
+        <Flex mb="20px" mt="40px">
           <Option
             onClick={() => setAbout(false)}
             br="5px 0px 0px 5px"
@@ -87,13 +100,26 @@ export default function index() {
             mt="0px"
             fs="3rem" 
             ls="-0.05em"
+            mb="0px"
             className="blue-gradient"
           >
             Von Token
           </Heading>
+          <Text 
+            mt="0px"
+            fs="0.7rem" 
+            ls="0.2em" 
+            color="gray.700" 
+            fw="600"
+            mb="0px"
+            textAlign="center"
+            cursor="pointer"
+          >
+            NOT FROM 63RD
+          </Text>
         </Link>
 
-        <Flex mb="20px">
+        <Flex mb="20px" mt="40px">
           <Option
             onClick={() => setAbout(false)}
             br="5px 0px 0px 5px"

@@ -9,6 +9,16 @@ function MyApp({ Component, pageProps }) {
         <title>Von Token</title>
         <link rel="icon" href="/favicon.ico" />
 
+        <meta property="og:url" content="https://vontoken.vercel.app" />
+        <meta proprety="og:title" content="Von Token" />
+        <meta property="og:description" content="Not from 63rd" />
+        <meta property="og:image" content="https://vontoken.vercel.app/Live.png" />
+
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:creator" content="@MamudarAdam"/>
+        <meta proprety="twitter:title" content="Von Token" />
+        <meta property="twitter:description" content="Not from 63rd" />
+
         {/* Use font awesome */}
         <script src="https://kit.fontawesome.com/ac50c301c8.js" crossOrigin="anonymous"></script>
 

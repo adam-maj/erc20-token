@@ -3,6 +3,7 @@ import { Section, Heading, Button, Flex, Link, Text } from '../styles/Styles'
 import About from './About'
 import Token from './Token'
 import styled, { css } from 'styled-components'
+import Notification from '../components/Notifications'
 
 const Option = styled(Button)`
   ${props => props.active ? css`
@@ -25,6 +26,7 @@ export default function index() {
 
   return (
     <Section direction="column" justify="flex-start" height="auto">
+      <Notification />
       <Link href="https://www.youtube.com/watch?v=hzt31eJTGxo" target="_blank">
         <Heading 
           fs="4rem" 

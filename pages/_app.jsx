@@ -1,9 +1,10 @@
 import Head from 'next/head'
+import NotificationProvider from '../components/contexts/NotificationContext'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (    
-    <>
+    <NotificationProvider>
       <Head>
         <title>Von Token</title>
         <link rel="icon" href="/favicon.ico" />
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
       <Component {...pageProps} />
-    </>
+    </NotificationProvider>
   )
 }
 

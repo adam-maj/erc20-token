@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
-import Web3 from 'web3'
+import { useState, useEffect, useContext } from 'react'
+import { NotificationContext } from '../components/contexts/NotificationContext'
 import VonToken from '../public/abis/VonToken.json'
 import VonTokenSale from '../public/abis/VonTokenSale.json'
+import Web3 from 'web3'
 
 // I made my own hook to easily interact with the blockchain from my frontend
 export default function useBlockchain() {
@@ -16,6 +17,7 @@ export default function useBlockchain() {
   const [tokensSold, setTokensSold] = useState()
   const [tokensAvailable, setTokensAvailable] = useState()
   const [tokensBought, setTokensBought] = useState()
+  const { addNotification } = useContext(NotificationContext)
 
   useEffect(() => {
     // Initialize web3 connection
@@ -126,7 +128,15 @@ export default function useBlockchain() {
         value: web3.utils.toBN(numberOfTokens * tokenPriceWei),
         data: data,
         gas: 500000
+      }).on('transactionHash', () => {
+        // When user clicks confirm
+        addNotification('Your transaction is being processed.')
+      }).on('error', () => {
+        // When user clicks reject
+        addNotification('Error: Your transaction was cancelled.')
       })
+
+
     }
   }
 

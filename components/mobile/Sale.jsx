@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Text, Button, Flex, Input, Span, Link } from '../../styles/Styles'
-import Signature from '../components/Signature'
+import Signature from '../Signature'
 
 export default function Sale() {
   const [tokens, setTokens] = useState(0)
@@ -55,6 +55,10 @@ export default function Sale() {
       >
         Buy Tokens
       </Button>
+
+      <Flex position="fixed" bottom="0px" direction="column">
+        <Signature />
+      </Flex>
     </>
   )
 }

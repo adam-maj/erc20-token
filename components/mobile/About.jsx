@@ -1,7 +1,7 @@
 import { Flex, Text, Link } from '../../styles/Styles'
 import Bubble from '../Bubble'
 import styled from 'styled-components'
-import Signature from '../components/Signature'
+import Signature from '../Signature'
 
 const Image = styled.img`
   width: 100%;
@@ -164,6 +164,10 @@ export default function About() {
           <Link href="https://infura.io/">Infura</Link>
           &nbsp;and I deployed this web application (the site you're on right now).
         </Paragraph>
+      </Flex>
+
+      <Flex mt="40px" direction="column">
+        <Signature />
       </Flex>
     </>
   )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Text, Button, Flex, Input, Span, Link } from '../../styles/Styles'
+import Signature from '../components/Signature'
 
 export default function Sale() {
   const [tokens, setTokens] = useState(0)
@@ -16,7 +17,7 @@ export default function Sale() {
 
   return (
     <>
-      <Flex mt="40px" width="350px" direction="column">
+      <Flex width="350px" direction="column">
         <Text color="gray" fs="12px" mb="0px" mt="0px">
           <Span color="black" fw="bold">Your Account:</Span> 0xdd69c33aff79c8157b370fa63f922a51dd
         </Text>

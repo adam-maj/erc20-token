@@ -120,7 +120,7 @@ export default function index() {
         <Text color="danger" textAlign="center" fs="14px" width="350px" fw="600" mb="0px" mt="20px">
           Switching to desktop is recommended.
         </Text>
-        <Text color="gray.600" textAlign="center" fs="12px" width="350px">
+        <Text color="gray.600" textAlign="center" fs="12px" width="350px" mb="40px">
           Unfortunately, blockchain technology currently doesn't work on mobile.
           I've made a (simplified) mobile demo of the project just so you can see what it looks like.
         </Text>

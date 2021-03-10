@@ -1,34 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project holds the smart contracts as well as the web application for the token I created (Von Token). In general, I've commented almost all of the important files with unique functionality so feel free to look through the repo.
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Overview
+The code is split up into a few key sections:
+1. The smart contracts themselves are in the [contracts](https://github.com/adam-maj/erc20-token/tree/main/contracts) directory. These are the Solidity smart contracts that dictate how the token works as well as how the token sale works. Both files are fully commented with explanations. Additionally, the compiled contracts (compiled into JSON so the frontend can understand them), are in the [public/abis](https://github.com/adam-maj/erc20-token/tree/main/public/abis) directory.
+2. The test cases for the smart contracts are in the [test](https://github.com/adam-maj/erc20-token/tree/main/test) directory. Every test case is explained. These are meant to ensure that the smart contracts are working properly and can be run locally with `truffle test`.
+3. truffle-config.js holds the blockchain networks that truffle needs to deal with (the production network is the Ropsten test network).
+4. The blockchain functionality that is used by the frontend (includes web3 integration with MetaMask) is in my custom blockchain react hook [useBlockchain](https://github.com/adam-maj/erc20-token/tree/main/utils/useBlockchain.jsx). The contract deployment is specified in the [migrations](https://github.com/adam-maj/erc20-token/tree/main/migrations)
+5. The frontend of the app has its root in [pages/index.jsx](https://github.com/adam-maj/erc20-token/tree/main/pages/index.jsx). The majority of the actual frontend React components are in the [components](https://github.com/adam-maj/erc20-token/tree/main/components) folder.

@@ -37,7 +37,7 @@ export default function About() {
         Learning about smart contracts
       </Text>
 
-      <Flex direction="column" width="375px" mb="40px">
+      <Flex direction="column" maxWidth="375px" minWidth="340px" width="90%" mb="40px">
         <Text color="gray.700" fs="14px" textAlign="center" mt="16px">
           Given the increasing popularity and widespread interest in cryptocurrency, 
           especially relating to the growth in&nbsp;
@@ -84,7 +84,7 @@ export default function About() {
         Building my own token
       </Text>
 
-      <Flex direction="column" width="375px" mb="40px">
+      <Flex direction="column" maxWidth="375px" minWidth="340px" width="90%" mb="40px">
         <Text color="gray.700" fs="14px" textAlign="center" mt="16px">
           After learning about the fundamentals of smart contracts and Solidity, 
           I wanted to make something tangible to prove my understanding. 
@@ -122,7 +122,7 @@ export default function About() {
         Creating a DApp
       </Text>
 
-      <Flex direction="column" width="375px" mb="40px">
+      <Flex direction="column" maxWidth="375px" minWidth="340px" width="90%" mb="40px">
         <Text color="gray.700" fs="14px" textAlign="center" mt="16px">
           Finally, I wanted to make my own&nbsp;
           <Link href="https://www.freecodecamp.org/news/what-is-a-dapp-a-guide-to-ethereum-dapps/" target="_blank">
@@ -166,7 +166,7 @@ export default function About() {
         </Paragraph>
       </Flex>
 
-      <Flex mt="40px" direction="column">
+      <Flex mt="40px" direction="column" mb="-30px">
         <Signature />
       </Flex>
     </>

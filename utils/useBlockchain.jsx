@@ -113,8 +113,8 @@ export default function useBlockchain() {
   function connectAccount() {
     if (window.ethereum) {
       window.ethereum.enable().then(([account]) => {
-      setAccount(account)
-    })
+        setAccount(account)
+      })
     }
   }
 

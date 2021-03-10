@@ -17,7 +17,7 @@ export default function Sale() {
 
   return (
     <>
-      <Flex width="350px" direction="column">
+      <Flex width="340px" direction="column">
         <Text color="gray" fs="12px" mb="0px" mt="0px">
           <Span color="black" fw="bold">Your Account:</Span> 0xdd69c33aff79c8157b370fa63f922a51dd
         </Text>
@@ -31,14 +31,14 @@ export default function Sale() {
       <Flex mb="20px" mt="40px">
         <Input 
           br="5px 0px 0px 5px"
-          width="175px"
+          width="170px"
           height="40px"
           value={tokens}
           onChange={e => setTokens(e.target.value)}
         />
         <Input 
           br="0px 5px 5px 0px" 
-          width="175px" 
+          width="170px" 
           height="40px"
           ml="-1px" 
           value={`${0.001 * tokens} ETH`} 
@@ -56,7 +56,7 @@ export default function Sale() {
         Buy Tokens
       </Button>
 
-      <Flex position="fixed" bottom="0px" direction="column">
+      <Flex mt="120px" direction="column" mb="-30px">
         <Signature />
       </Flex>
     </>

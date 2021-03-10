@@ -34,7 +34,7 @@ export default function Build() {
               one that provides the functionality for my token
             </Link>, and&nbsp;
             <Link href="https://github.com/adam-maj/erc20-token/blob/main/contracts/VonTokenSale.sol" target="_blank">
-              one that enables the sale of tokens.
+              one that enables the sale of tokens
             </Link>.
           </Paragraph>
         </Right>
